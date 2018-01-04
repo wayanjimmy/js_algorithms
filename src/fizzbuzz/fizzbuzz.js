@@ -11,7 +11,7 @@ const fizzbuzz = value => {
     return 'Buzz'
   }
 
-  return value
+  return value.toString()
 }
 
 module.exports = fizzbuzz
