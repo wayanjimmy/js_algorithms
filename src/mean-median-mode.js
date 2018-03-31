@@ -3,9 +3,10 @@ function getMean(arr) {
 }
 
 function getMedian(arr) {
+  arr = arr.sort((a, b) => a - b)
   if (arr.length % 2 == 0) {
     let index = Math.floor(arr.length / 2)
-    return (arr[index] + arr[index + 1]) / 2
+    return (arr[index] + arr[index - 1]) / 2
   }
   let index = Math.ceil(arr.length / 2)
   return arr[index]
@@ -19,18 +20,21 @@ function getMode(arr) {
     }
     freq[value] = freq[value] + 1
   })
-  let tempMode = { value: '', freq: 0 }
-  Object.keys(freq)
-    .map(v => ({
-      value: v,
-      freq: freq[v]
-    }))
-    .forEach(obj => {
-      if (obj.freq > tempMode.freq) {
-        tempMode = obj
-      }
-    })
-  return +tempMode.value
+  let maxFrequency = 0
+  let mode = []
+  for (let i in freq) {
+    if (freq[i] > maxFrequency) {
+      mode = [i]
+      maxFrequency = freq[i]
+    } else if (freq[i] === maxFrequency) {
+      mode.push(i)
+    }
+  }
+  if (mode.length === Object.keys(freq).length) {
+    return []
+  }
+
+  return mode.map(value => +value)
 }
 
 function meanMedianMode(arr) {
