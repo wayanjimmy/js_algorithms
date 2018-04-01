@@ -13,6 +13,4 @@ function binarySearch(arrayNum, key) {
   }
 }
 
-console.log(binarySearch([5, 7, 12, 16, 36, 39, 42, 56, 71], 56))
-
 module.exports = binarySearch
