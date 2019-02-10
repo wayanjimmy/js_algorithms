@@ -11,6 +11,6 @@
   "license": "ISC",
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "jest": "^22.0.4"
+    "jest": "^24.1.0"
   }
 }
